@@ -71,17 +71,17 @@ export default function Page() {
           {[
             {
               title: "Logo Design",
-              img: "/portfolio/portfoliosample1.png",
+              img: "/portfolio/logo1.png",
               description: "Custom logos that define your brand identity."
             },
             {
               title: "Brand Identity",
-              img: "/portfolio/branddesignsample1.png",
+              img: "/portfolio/brand1.png",
               description: "Full branding packages including color palettes and style guides."
             },
             {
               title: "Illustration",
-              img: "/portfolio/learningmaterialssample1.png",
+              img: "/portfolio/illustration1.jpg",
               description: "Original illustrations for marketing, books, and digital content."
             }
           ].map((item, idx) => (
