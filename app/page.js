@@ -69,7 +69,7 @@ export default function Page() {
         </div>
       </section>
 
-    {/* Services Section */}
+   {/* Services Section */}
 <section className="py-16 px-6 max-w-6xl mx-auto">
   <h2 className="text-3xl font-bold text-center mb-2">
     Our <span className="text-purple-600">Services</span>
@@ -78,7 +78,7 @@ export default function Page() {
     {[
       { 
         title: "Logo Design", 
-        desc: <>Unique and <span className="text-purple-600">memorable logos</span> that define your brand’s identity.</> 
+        desc: <>Unique and <span className="text-purple-600">memorable logos</span> that define your brand's identity.</> 
       },
       { 
         title: "Brand Identity", 
@@ -197,36 +197,33 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Process Section */}
-      <section id="process" className="py-16 px-6 bg-white">
-        <h2 className="text-3xl font-bold text-center mb-10">Our <span className="text-purple-600">Process</span></h2>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          {[
-            { title: "Consult", desc: "We start with a conversation to understand your goals, vision, and needs." },
-            { title: "Create", desc: "Our team designs, illustrates, or edits with creativity and precision." },
-            { title: "Deliver", desc: "We provide polished results, ready for publishing and brand use." },
-            { title: "Support", desc: "We’re here for ongoing updates, refinements, and future projects." },
-          ].map((step, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="p-6 rounded-2xl shadow-md bg-gray-50 text-center hover:shadow-lg transition"
-            >
-              <h3 className="text-xl font-semibold mb-2 text-purple-600">{step.title}</h3>
-              <p className="text-gray-600">{step.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+{/* Process Section */}
+<div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+  {[
+    { title: "Consult", desc: "We start with a conversation to understand your goals, vision, and needs." },
+    { title: "Create", desc: "Our team designs, illustrates, or edits with creativity and precision." },
+    { title: "Deliver", desc: "We provide polished results, ready for publishing and brand use." },
+    { title: "Support", desc: "We're here for ongoing updates, refinements, and future projects." },
+  ].map((step, idx) => (
+    <motion.div
+      key={idx}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: idx * 0.1 }}
+      className="p-6 rounded-2xl shadow-md bg-gray-50 text-center hover:shadow-lg transition"
+    >
+      <h3 className="text-xl font-semibold mb-2 text-purple-600">{step.title}</h3>
+      <p className="text-gray-600">{step.desc}</p>
+    </motion.div>
+  ))}
+</div>
 
 {/* Contact Section */}
 <section className="py-16 px-6 max-w-3xl mx-auto text-center">
   <h2 className="text-3xl font-bold mb-4">Work With Us</h2>
   <p className="text-gray-600 mb-6">
-    Let’s collaborate on your next creative project. Whether you need <span className="text-purple-600 font-semibold">branding</span>, <span className="text-purple-600 font-semibold">illustration</span>, or <span className="text-purple-600 font-semibold">video content</span>, we deliver solutions tailored to your needs.
-  </p>
+  Let's collaborate on your next creative project. Whether you need <span className="text-purple-600 font-semibold">branding</span>, <span className="text-purple-600 font-semibold">illustration</span>, or <span className="text-purple-600 font-semibold">video content</span>, we deliver solutions tailored to your needs.
+</p>
   <a
     href="mailto:creativecraftdesignstudio2025@gmail.com"
     className="inline-block bg-purple-600 text-white py-4 px-8 rounded-2xl shadow-lg hover:bg-purple-700 transition-colors font-semibold text-lg"
