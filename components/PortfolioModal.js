@@ -10,9 +10,7 @@ export default function PortfolioModal({ item }) {
   // Close modal with ESC key
   useEffect(() => {
     const handleEsc = (event) => {
-      if (event.key === "Escape") {
-        setIsOpen(false);
-      }
+      if (event.key === "Escape") setIsOpen(false);
     };
 
     if (isOpen) {
@@ -38,7 +36,7 @@ export default function PortfolioModal({ item }) {
 
   return (
     <>
-      {/* Initial Portfolio Box */}
+      {/* Portfolio Card */}
       <div onClick={() => setIsOpen(true)} className="cursor-pointer">
         <div className="overflow-hidden rounded-2xl shadow-md hover:shadow-lg transition-transform transform hover:-translate-y-2 bg-white">
           <div className="relative w-full h-36">
