@@ -2,9 +2,27 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 export default function PortfolioModal({ item }) {
   const [isOpen, setIsOpen] = useState(false);
+
+  // 🔹 Add ESC key close
+  useEffect(() => {
+    const handleEsc = (event) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      window.addEventListener("keydown", handleEsc);
+    }
+
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, [isOpen]);
 
   if (!item) return null;
 
@@ -46,12 +64,14 @@ export default function PortfolioModal({ item }) {
           exit={{ opacity: 0 }}
         >
           <div className="bg-white rounded-2xl max-w-2xl w-full p-6 overflow-y-auto max-h-[80vh]">
-            <button
-              className="float-right text-gray-500 font-bold text-xl"
-              onClick={() => setIsOpen(false)}
-            >
-              &times;
-            </button>
+          <button
+            onClick={() => setIsOpen(false)}
+            className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center 
+                      text-gray-600 hover:text-red-500 bg-gray-100 hover:bg-gray-200 
+                      rounded-full shadow-md transition-transform transform hover:scale-110"
+          >
+            &times;
+          </button>
 
             <h2 className="text-2xl font-bold mb-4">{getModalTitle(item.title)}</h2>
             <p className="text-gray-600 mb-6">{item.description}</p>

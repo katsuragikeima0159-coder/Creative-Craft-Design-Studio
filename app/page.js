@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import PortfolioModal from "../components/PortfolioModal";
 import { portfolioItems } from "../data/portfolio";
 
+
 export default function Page() {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -64,37 +65,47 @@ export default function Page() {
           Expert design, illustration, and branding for businesses and publishers.
         </p>
         <div className="mt-6">
-          <a
-            href="#portfolio"
-            className="bg-white text-purple-600 font-semibold py-3 px-6 rounded-2xl shadow hover:bg-gray-100"
-          >
-            View Portfolio
-          </a>
+          
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-16 px-6 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-2">Our <span className="text-purple-600">Services</span></h2>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          {[
-            { title: "Branding & Logos", desc: "Custom logos, brand kits, and identity systems for startups and businesses." },
-            { title: "Illustration", desc: "Children’s book illustrations, editorial art, and creative visuals." },
-            { title: "E-learning Design", desc: "Infographics, educational modules, and interactive layouts for digital learning." },
-            { title: "Video Editing & Content", desc: "Professional editing for promos, social media, and storytelling across digital platforms." },
-          ].map((service, idx) => (
-            <motion.div
-              key={idx}
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.1 }}
-              className="rounded-2xl shadow-md hover:shadow-lg transition p-6 bg-white text-center"
-            >
-              <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-              <p className="text-gray-600">{service.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+    {/* Services Section */}
+<section className="py-16 px-6 max-w-6xl mx-auto">
+  <h2 className="text-3xl font-bold text-center mb-2">
+    Our <span className="text-purple-600">Services</span>
+  </h2>
+  <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+    {[
+      { 
+        title: "Logo Design", 
+        desc: <>Unique and <span className="text-purple-600">memorable logos</span> that define your brand’s identity.</> 
+      },
+      { 
+        title: "Brand Identity", 
+        desc: <>Complete <span className="text-purple-600">branding packages</span> including logos, colors, typography, and style guides.</> 
+      },
+      { 
+        title: "Illustration", 
+        desc: <>Custom <span className="text-purple-600">illustrations</span> for books, marketing campaigns, and digital content.</> 
+      },
+      { 
+        title: "Video Editing", 
+        desc: <>Engaging <span className="text-purple-600">edits</span> for social media, promos, and storytelling.</> 
+      },
+    ].map((service, idx) => (
+      <motion.div
+        key={idx}
+        whileHover={{ scale: 1.05 }}
+        transition={{ duration: 0.1 }}
+        className="rounded-2xl shadow-md hover:shadow-lg transition p-6 bg-white text-center"
+      >
+        <h3 className="text-2xl font-bold mb-3 text-gray-900">{service.title}</h3>
+        <p className="text-gray-600">{service.desc}</p>
+      </motion.div>
+    ))}
+  </div>
+</section>
+
 
       {/* Portfolio Section */}
       <section id="portfolio" className="py-16 px-6 bg-gray-100">
@@ -108,6 +119,42 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Tools Section */}
+<section id="tools" className="py-16 px-6 bg-gray-50">
+  <div className="max-w-6xl mx-auto text-center">
+    <h3 className="text-3xl font-bold text-center mb-2">Tools We <span className="text-3xl font-bold mb-12 text-purple-600">
+       Specialize In </span></h3>
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
+
+      {[
+        { name: "Adobe Photoshop", logo: "/tools/adobeps.png" },
+        { name: "Adobe Illustrator", logo: "/tools/adobeillustrator.png" },
+        { name: "Adobe InDesign", logo: "/tools/indesign.png" },
+        { name: "Adobe Premiere Pro", logo: "/tools/premiere.png" },
+        { name: "Autodesk Maya", logo: "/tools/maya.png" },
+        { name: "Figma", logo: "/tools/figma.png" },
+        { name: "Canva", logo: "/tools/canva.jpg" },
+        { name: "CapCut", logo: "/tools/capcut.jpg" },
+      ].map((tool, idx) => (
+        <div
+          key={idx}
+          className="relative p-6 rounded-2xl bg-white shadow-md hover:shadow-lg transition overflow-hidden"
+        >
+          {/* Logo behind text */}
+          <img
+            src={tool.logo}
+            alt={tool.name}
+            className="absolute inset-0 w-full h-full opacity-60 object-cover object-center pointer-events-none"
+          />
+          {/* Text on top */}
+          <h3 className="relative text-xl font-bold text-gray-900 drop-shadow-md"> {tool.name}</h3>
+        </div>
+      ))}
+
+    </div>
+  </div>
+</section>
+
       {/* About Section */}
       <section id="about" className="py-16 px-6 bg-gray-100">
         <h2 className="text-3xl font-bold text-center mb-10">
@@ -115,24 +162,38 @@ export default function Page() {
         </h2>
         <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12 max-w-3xl mx-auto">
           {/* Founder */}
-          <div className="mb-8 text-center">
-            <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-gray-200 overflow-hidden">
-              <img src="/alex-pic.jpeg" alt="Founder" className="w-full h-full object-cover" />
-            </div>
-            <h3 className="text-xl font-semibold">Alexander Ledesma</h3>
-            <p className="text-purple-600 font-medium">Founder & Lead Strategist</p>
-            <p className="mt-3 text-gray-600 max-w-xl mx-auto">
-              Alex is the main point of contact for our clients, ensuring every project starts with a clear strategy and ends with measurable results.
-            </p>
-          </div>
-          {/* Team mention */}
-          <div className="text-center border-t pt-6">
-            <p className="text-gray-700 mb-2">Supported by a dedicated creative team:</p>
-            <ul className="space-y-1 text-gray-600">
-              <li><span className="font-medium">Olivia</span> — Designer & Multimedia Artist</li>
-              <li><span className="font-medium">Ayen</span> — Video Editor & Content Creator</li>
-            </ul>
-          </div>
+         <div className="mb-8 text-center">
+  {/* Founder Photo */}
+  <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-gray-200 overflow-hidden">
+    <img src="/alex-pic.jpeg" alt="Founder" className="w-full h-full object-cover" />
+  </div>
+
+  {/* Founder Name & Role */}
+  <h3 className="text-xl font-semibold">Alexander Ledesma</h3>
+  <p className="text-purple-600 font-medium">Founder & Lead Strategist</p>
+
+  {/* Company Intro */}
+  <p className="mt-3 text-gray-600 max-w-xl mx-auto">
+    Creative Craft Design Studio delivers standout branding, illustration, and multimedia solutions for businesses and publishers. Each project is approached with clear strategy, creative precision, and a focus on results.
+  </p>
+
+  {/* Optional Mission Statement */}
+  <p className="mt-2 text-gray-500 italic max-w-xl mx-auto">
+    Our mission: Craft memorable visual experiences that connect brands with their audience.
+  </p>
+</div>
+
+{/* Team mention with subtle hint of growth */}
+<div className="text-center border-t pt-6">
+  <p className="text-gray-700 mb-2">Supported by a dedicated core team:</p>
+  <ul className="space-y-1 text-gray-600">
+    <li><span className="font-medium">Olivia</span> — Designer & Multimedia Artist</li>
+    <li><span className="font-medium">Ayen</span> — Video Editor & Content Creator</li>
+  </ul>
+  <p className="mt-2 text-gray-500 italic text-sm">
+    We're always looking for talented creatives to join us as we grow.
+  </p>
+</div>
         </div>
       </section>
 
@@ -160,19 +221,20 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-16 px-6 max-w-3xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-6">Work With Us</h2>
-        <p className="text-gray-600 mb-6">
-          Let’s collaborate on your next creative project. Whether you need branding, illustration, or digital design, we deliver solutions tailored to your needs.
-        </p>
-        <a
-          href="mailto:olivialedesma2019@gmail.com"
-          className="bg-purple-600 text-white py-3 px-6 rounded-2xl shadow hover:bg-purple-700"
-        >
-          Contact Us
-        </a>
-      </section>
+{/* Contact Section */}
+<section className="py-16 px-6 max-w-3xl mx-auto text-center">
+  <h2 className="text-3xl font-bold mb-4">Work With Us</h2>
+  <p className="text-gray-600 mb-6">
+    Let’s collaborate on your next creative project. Whether you need <span className="text-purple-600 font-semibold">branding</span>, <span className="text-purple-600 font-semibold">illustration</span>, or <span className="text-purple-600 font-semibold">video content</span>, we deliver solutions tailored to your needs.
+  </p>
+  <a
+    href="mailto:creativecraftdesignstudio2025@gmail.com"
+    className="inline-block bg-purple-600 text-white py-4 px-8 rounded-2xl shadow-lg hover:bg-purple-700 transition-colors font-semibold text-lg"
+  >
+    Contact Us
+  </a>
+</section>
+
 
       {/* Footer */}
       <footer className="py-6 text-center text-gray-500 border-t">
